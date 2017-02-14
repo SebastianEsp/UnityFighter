@@ -20,10 +20,9 @@ public class Player : MonoBehaviour {
     }
 
     public Animator animator;
-    public Animation animation;
-    
-    int state;
-    int stance;
+
+    State state;
+    Stance stance;
     
 	// Use this for initialization
 	void Start () 
@@ -36,7 +35,10 @@ public class Player : MonoBehaviour {
     {
         if (Input.GetButtonDown("Jump"))
         {
+            state = State.isAttacking;
             animator.Play("ninja_Stab");
+
+            Debug.Log(state);
         }
 
         if (Input.GetButtonDown("Horizontal"))
